@@ -57,8 +57,8 @@ const mostrarTareas = (arr) => {
                 <td>${tarea.id}</td>
                 <td>${tarea.descripcion}</td>
                 <td>
-                    <input type="checkbox" ${tarea.realizada ? 'checked': ''}>
-                    <button onClick="borrarTarea(${tarea.id})">❌</button>
+                    <input type="checkbox" ${tarea.realizada ? 'checked': ''} onchange="actualizarTarea(${tarea.id})">
+                    <button onclick="borrarTarea(${tarea.id})">❌</button>
                 </td>
             </tr>
 `;
@@ -77,4 +77,16 @@ const borrarTarea = (id) => {
     tareas.splice(indice,1)
     console.log(id)
     mostrarTareas(tareas);
+}
+
+//actualizar realizada
+const actualizarTarea = (id) => {
+    //busca el indice
+    const indice = tareas.findIndex((tarea) => tarea.id === id)
+    //reemplaza al valor contrario
+    tareas[indice].realizada = !tareas[indice].realizada
+    //muestra la lista actualizada
+    mostrarTareas(tareas)
+    
+    
 }
