@@ -58,7 +58,7 @@ const mostrarTareas = (arr) => {
                 <td>${tarea.descripcion}</td>
                 <td>
                     <input type="checkbox" ${tarea.realizada ? 'checked': ''}>
-                    <button>❌</button>
+                    <button onClick="borrarTarea(${tarea.id})">❌</button>
                 </td>
             </tr>
 `;
@@ -70,3 +70,11 @@ const mostrarTareas = (arr) => {
 
 //mostrar las tareas
 mostrarTareas(tareas);
+
+//borrar tarea
+const borrarTarea = (id) => {
+    const indice = tareas.findIndex( (tarea) => tarea.id === id )
+    tareas.splice(indice,1)
+    console.log(id)
+    mostrarTareas(tareas);
+}
