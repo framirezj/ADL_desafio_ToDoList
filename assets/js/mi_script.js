@@ -1,32 +1,41 @@
 //datos
 const tareas = [
-    {
-      id: 1,
-      descripcion: "Comprar leche",
-      realizada: false,
-    },
-    {
-      id: 2,
-      descripcion: "Llamar al médico",
-      realizada: false,
-    },
-    {
-      id: 3,
-      descripcion: "Enviar correo a Juan",
-      realizada: false,
-    },
-    {
-      id: 4,
-      descripcion: "Limpiar la casa",
-      realizada: true,
-    },
-  ];
+  {
+    id: 1,
+    descripcion: "Comprar leche",
+    realizada: false,
+  },
+  {
+    id: 2,
+    descripcion: "Llamar al médico",
+    realizada: false,
+  },
+  {
+    id: 3,
+    descripcion: "Enviar correo a Juan",
+    realizada: false,
+  },
+  {
+    id: 4,
+    descripcion: "Limpiar la casa",
+    realizada: true,
+  },
+];
 
 //elementos
 const input = document.querySelector("#inputTarea");
 const botonAgregar = document.querySelector("#botonAgregar");
 const tabla = document.querySelector("#listaTareas");
+const totalTareas = document.querySelector("#total");
+const totalRealizadas = document.querySelector("#realizadas");
 
+//contadores
+const actualizaContadores = () => {
+    totalTareas.innerText = tareas.length
+}
+
+
+//Agrega una nueva tarea
 botonAgregar.addEventListener("click", () => {
   //prepara la tarea nueva
   const nuevaTarea = {
@@ -45,7 +54,6 @@ botonAgregar.addEventListener("click", () => {
   mostrarTareas(tareas);
 });
 
-
 //funcion para mostrar las tareas
 const mostrarTareas = (arr) => {
   //declarar el template
@@ -57,7 +65,9 @@ const mostrarTareas = (arr) => {
                 <td>${tarea.id}</td>
                 <td>${tarea.descripcion}</td>
                 <td>
-                    <input type="checkbox" ${tarea.realizada ? 'checked': ''} onchange="actualizarTarea(${tarea.id})">
+                    <input type="checkbox" ${
+                      tarea.realizada ? "checked" : ""
+                    } onchange="actualizarTarea(${tarea.id})">
                     <button onclick="borrarTarea(${tarea.id})">❌</button>
                 </td>
             </tr>
@@ -66,27 +76,28 @@ const mostrarTareas = (arr) => {
 
   //insertar el html
   tabla.innerHTML = template;
+  actualizaContadores()
+};
+
+//borrar tarea
+const borrarTarea = (id) => {
+  //busco el indice en el listado
+  const indice = tareas.findIndex((tarea) => tarea.id === id);
+  //ocupo splice para borrar el objeto
+  tareas.splice(indice, 1);
+  //muestra el array actualizado
+  mostrarTareas(tareas);
+};
+
+//actualizar realizada
+const actualizarTarea = (id) => {
+  //busca el indice
+  const indice = tareas.findIndex((tarea) => tarea.id === id);
+  //reemplaza al valor contrario
+  tareas[indice].realizada = !tareas[indice].realizada;
+  //muestra la lista actualizada
+  mostrarTareas(tareas);
 };
 
 //mostrar las tareas
 mostrarTareas(tareas);
-
-//borrar tarea
-const borrarTarea = (id) => {
-    const indice = tareas.findIndex( (tarea) => tarea.id === id )
-    tareas.splice(indice,1)
-    console.log(id)
-    mostrarTareas(tareas);
-}
-
-//actualizar realizada
-const actualizarTarea = (id) => {
-    //busca el indice
-    const indice = tareas.findIndex((tarea) => tarea.id === id)
-    //reemplaza al valor contrario
-    tareas[indice].realizada = !tareas[indice].realizada
-    //muestra la lista actualizada
-    mostrarTareas(tareas)
-    
-    
-}
