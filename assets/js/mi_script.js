@@ -23,20 +23,29 @@ const tareas = [
 ];
 
 //elementos
-const input = document.querySelector("#inputTarea");
-const botonAgregar = document.querySelector("#botonAgregar");
-const tabla = document.querySelector("#listaTareas");
-const totalTareas = document.querySelector("#total");
-const totalRealizadas = document.querySelector("#realizadas");
+  const input = document.querySelector("#inputTarea");
+    const botonAgregar = document.querySelector("#botonAgregar");
+    const tabla = document.querySelector("#listaTareas");
+    const totalTareas = document.querySelector("#total");
+    const totalRealizadas = document.querySelector("#realizadas");
 
 //contadores
 const actualizaContadores = () => {
-    totalTareas.innerText = tareas.length
-}
+  totalTareas.innerText = tareas.length;
+  const soloRealizadas = tareas.filter((tarea) => tarea.realizada);
+  totalRealizadas.innerText = soloRealizadas.length;
+};
 
 
 //Agrega una nueva tarea
 botonAgregar.addEventListener("click", () => {
+
+  //validar entrada vacia
+  if(!input.value.trim()){
+    alert('Ingresa una tarea válida')
+    return;
+  }
+
   //prepara la tarea nueva
   const nuevaTarea = {
     id: Math.floor(Math.random() * 500) + 1,
@@ -67,7 +76,7 @@ const mostrarTareas = (arr) => {
                 <td>
                     <input type="checkbox" ${
                       tarea.realizada ? "checked" : ""
-                    } onchange="actualizarTarea(${tarea.id})">
+                    } data-id="${tarea.id}">
                     <button onclick="borrarTarea(${tarea.id})">❌</button>
                 </td>
             </tr>
@@ -76,7 +85,7 @@ const mostrarTareas = (arr) => {
 
   //insertar el html
   tabla.innerHTML = template;
-  actualizaContadores()
+  actualizaContadores();
 };
 
 //borrar tarea
@@ -89,7 +98,15 @@ const borrarTarea = (id) => {
   mostrarTareas(tareas);
 };
 
-//actualizar realizada
+//actualizar realizada evento.
+tabla.addEventListener("change", (event) => {
+  if(event.target.type === "checkbox"){
+    const id = Number(event.target.dataset.id)
+    actualizarTarea(id)
+  }
+})
+
+//funcion para realizar el cambio de estado a realizada.
 const actualizarTarea = (id) => {
   //busca el indice
   const indice = tareas.findIndex((tarea) => tarea.id === id);
@@ -97,7 +114,10 @@ const actualizarTarea = (id) => {
   tareas[indice].realizada = !tareas[indice].realizada;
   //muestra la lista actualizada
   mostrarTareas(tareas);
+  
 };
 
 //mostrar las tareas
 mostrarTareas(tareas);
+
+
