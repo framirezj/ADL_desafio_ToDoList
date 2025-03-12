@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/mi_css.css" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>ToDoList</title>
-</head>
-<body>
-
-
-    <h1>Todo List</h1>
-    <hr>
-
-    <label>Nueva Tarea</label>
-    <input type="text" id="inputTarea" placeholder="Escriba una tarea">
-    <button id="botonAgregar">Agregar</button>
-
-    <p>Total: <span id="total"></span></p>
-    <p>Tareas Realizadas: <span id="realizadas"></span></p>
-
-    <table>
-        <thead>
+  </head>
+  <body>
+    <header>
+      <h1 class="atma-semibold">Todo List</h1>
+    </header>
+    <main>
+      <!-- input de nuevas tareas -->
+      <section id="tarea-nueva">
+        <label class="atma-medium">Nueva Tarea</label>
+        <input type="text" id="inputTarea" placeholder="Escriba una tarea"  class="atma-regular"/>
+        <button id="botonAgregar" class="atma-medium">Agregar</button>
+      </section>
+      <!-- contadores -->
+      <section id="contadores">
+        <p class="atma-semibold">Total: <span id="total"></span></p>
+        <p class="atma-semibold">Realizadas: <span id="realizadas"></span></p>
+      </section>
+      <!-- listado de tareas -->
+      <section id="listadoTareas">
+        <table class="atma-regular">
+          <thead>
             <tr>
-                <th>ID</th>
-                <th>Tarea</th>                
+              <th>ID</th>
+              <th>Tarea</th>
             </tr>
-        </thead>
-        <tbody id="listaTareas">
+          </thead>
+          <tbody id="listaTareas">
             <!-- Aqui va el listado de tareas -->
-        </tbody>
-    </table>
-<script src="./assets/js/mi_script.js"></script>
-</body>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="./assets/js/mi_script.js"></script>
+  </body>
 </html>

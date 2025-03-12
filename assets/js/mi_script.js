@@ -77,6 +77,8 @@ const mostrarTareas = (arr) => {
                     <input type="checkbox" ${
                       tarea.realizada ? "checked" : ""
                     } data-id="${tarea.id}">
+                </td>
+                <td>    
                     <button onclick="borrarTarea(${tarea.id})">❌</button>
                 </td>
             </tr>
