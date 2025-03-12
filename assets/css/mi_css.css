@@ -1,133 +1,124 @@
 .atma-light {
-    font-family: "Atma", system-ui;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .atma-regular {
-    font-family: "Atma", system-ui;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .atma-medium {
-    font-family: "Atma", system-ui;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .atma-semibold {
-    font-family: "Atma", system-ui;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .atma-bold {
-    font-family: "Atma", system-ui;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-body{
-    background-color: #2A2D3E;
-    color: #F0F0F0;
+  font-family: "Atma", system-ui;
+  font-weight: 300;
+  font-style: normal;
 }
 
-header h1{
-    font-size: 4rem;
-    text-align: center;
+.atma-regular {
+  font-family: "Atma", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
-
-
-
-
-#tarea-nueva{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.atma-medium {
+  font-family: "Atma", system-ui;
+  font-weight: 500;
+  font-style: normal;
 }
 
-#tarea-nueva label, #tarea-nueva input {
-    text-align: center;
+.atma-semibold {
+  font-family: "Atma", system-ui;
+  font-weight: 600;
+  font-style: normal;
 }
 
-#tarea-nueva label{
-    font-size: 1.5rem;
-    color: #C5C8D0;
+.atma-bold {
+  font-family: "Atma", system-ui;
+  font-weight: 700;
+  font-style: normal;
 }
 
-#tarea-nueva input{
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    width: 80%;
+body {
+  background-color: #2a2d3e;
+  color: #f0f0f0;
 }
 
-#tarea-nueva button{
-    font-size: 1rem;
-    padding: 0.4rem;
-    width: 50%;
-    background-color: #5C7AEA;
-    color: #F0F0F0;
+header h1 {
+  font-size: 4rem;
+  text-align: center;
 }
 
-
-
-
-#contadores{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+#tarea-nueva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-#contadores p{
-    text-align: center;
-    font-size: 1.8rem;
+#tarea-nueva label,
+#tarea-nueva input {
+  text-align: center;
 }
 
-
-
-#listadoTareas{
-    display: flex;
-    justify-content: center;
+#tarea-nueva label {
+  font-size: 1.5rem;
+  color: #c5c8d0;
 }
 
-table{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;    
-    width: 410px;
-    border-spacing: 0; /* Opcional, para evitar separación excesiva */
-
-
-    border-collapse: collapse;
-        table-layout: fixed; /* Esto ayuda a que las celdas tengan un ancho uniforme */
+#tarea-nueva input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 80%;
 }
 
-th,td{
-    padding: 1rem;
-    word-wrap: break-word;
-    white-space: normal;
-    max-width: 200px;
+#tarea-nueva button {
+  font-size: 1rem;
+  padding: 0.4rem;
+  width: 50%;
+  background-color: #5c7aea;
+  color: #f0f0f0;
 }
 
-td{
-    border-bottom: 2px solid #383B4E;
+#contadores {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-td:nth-child(2) { /* Columna de descripción */
-    width: 250px; /* Tamaño fijo */
-    word-wrap: break-word;
-    white-space: normal;
+#contadores p {
+  text-align: center;
+  font-size: 1.8rem;
 }
 
-table button{
-    all:unset;
-    cursor: pointer;
+#listadoTareas {
+  display: flex;
+  justify-content: center;
 }
 
-tbody{
-    min-width: 100%;
+table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 410px;
+  border-spacing: 0; /* Opcional, para evitar separación excesiva */
+  border-collapse: collapse;
+  table-layout: fixed; /* Esto ayuda a que las celdas tengan un ancho uniforme */
+}
+
+th,
+td {
+  padding: 1rem;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 200px;
+}
+
+td {
+  border-bottom: 2px solid #383b4e;
+}
+
+td:nth-child(2) {
+  /* Columna de descripción */
+  width: 250px; /* Tamaño fijo */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+table button {
+  all: unset;
+  cursor: pointer;
+}
+
+tbody {
+  min-width: 100%;
 }
