@@ -62,11 +62,20 @@ header h1 {
 }
 
 #tarea-nueva button {
-  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
   padding: 0.4rem;
-  width: 50%;
+  width: 28%;
   background-color: #5c7aea;
   color: #f0f0f0;
+  border-radius: 1rem;
+}
+
+#tarea-nueva button:hover {
+  
+  background-color: #c5c8d0;
+  color: #2a2d3e;
 }
 
 #contadores {
@@ -121,4 +130,23 @@ table button {
 
 tbody {
   min-width: 100%;
+}
+
+
+@media (min-width: 1024px) {
+  /* Estilos específicos para desktop aquí */
+
+  table{
+    width: 800px;
+    font-size: 1.8rem;
+  }
+
+  td:nth-child(2) {
+    min-width: 600px;
+  }
+
+  input[type="checkbox"] {
+  transform: scale(2); /* Aumenta el tamaño en un 50% */
+}
+
 }
